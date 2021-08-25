@@ -44,7 +44,7 @@ const int   SIZEBOOL  = (int) sizeof(bool);
 const int   BFHEAD_LENGTH = (int) (sizeof(int) * 2);
 									// index size of leaf node
 const int   INDEX_SIZE_LEAF_NODE = 4096;
-const int   MAXK = 20;				// max top-k value
+const int   MAXK = 10;				// max top-k value
 
 
 #endif

@@ -232,7 +232,7 @@ int lshknn(							// k-nn via qalsh (data in disk)
 	}
 	fclose(fp);	
 
-	int kNNs[] = {20};
+	int kNNs[] = {10};
 	int maxRound = 1;
 	int top_k = 0;
 
@@ -254,7 +254,7 @@ int lshknn(							// k-nn via qalsh (data in disk)
 
 	char output_set[200];
 	strcpy(output_set, result_folder);
-	//strcat(output_set, "20K.txt");
+	strcat(output_set, "20K.txt");
 
 	fp = fopen(output_set, "a+");	//open output file
 	if (!fp) {
@@ -280,11 +280,23 @@ int lshknn(							// k-nn via qalsh (data in disk)
 			int re_n=0;
 			for(int j=0;j<top_k;j++)
 			{
+
 				if(rslt[j].id_==R[i * maxk + j])
 				{
 					found++;
 					re_n++;	
 				}
+				else
+                {
+				    for ( int k =j+1; k<top_k;k++)
+                    {
+				        if(rslt[j].id_==R[i*maxk+k])
+                        {
+				            found++;
+				            re_n++;
+                        }
+                    }
+                }
 			}
 			allRatio += found;
 		}
