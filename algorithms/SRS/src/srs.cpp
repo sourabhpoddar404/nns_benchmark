@@ -317,8 +317,9 @@ bool file_exists(const char *filename) {
   std::ifstream ifile(filename);
   if (!ifile) {
     fprintf(stderr, "cannot open file %s\n", filename);
+    return false;
   }
-  return ifile;
+  return true;
 }
 
 bool dir_exists(const char *dirname) {

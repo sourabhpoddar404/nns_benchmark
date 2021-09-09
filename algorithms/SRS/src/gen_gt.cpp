@@ -158,7 +158,7 @@ void usage() {
 
 bool file_exists(const char *filename) {
   std::ifstream ifile(filename);
-  return ifile;
+  return true;
 }
 
 double l2_dist_int(int *_p1, int *_p2, int _dim) {
